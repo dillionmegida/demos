@@ -1,0 +1,87 @@
+<link rel="stylesheet" href="./style.css" />
+
+<div class="container">
+  <button id="start-camera">Start Camera</button>
+  <div class="webcam">
+    <video id="video" autoplay muted></video>
+  </div>
+  <button id="start-record">Start Recording</button>
+  <button id="stop-record">Stop Recording</button>
+  <a target="_blank" class="recorded-preview"></a>
+</div>
+
+<script>
+  const cameraButton = document.querySelector("#start-camera");
+  const webcam = document.querySelector(".webcam");
+  const video = document.querySelector("#video");
+  const startButton = document.querySelector("#start-record");
+  const stopButton = document.querySelector("#stop-record");
+  const recordedPreview = document.querySelector(".recorded-preview");
+
+  let cameraStream = null;
+  let mediaRecorder = null;
+  let blobsRecorded = [];
+
+  cameraButton.addEventListener("click", async function () {
+    // prompts the user for permission to use a media input
+    try {
+      cameraStream = await navigator.mediaDevices.getUserMedia({
+        video: true,
+        audio: true,
+      });
+      video.srcObject = cameraStream;
+    } catch (e) {
+      if (e.message.includes("Permission"))
+        return console.log("Permission denied");
+
+      console.log("Could not connect to media devices");
+    }
+    
+    cameraButton.disabled = true
+  });
+
+  startButton.addEventListener("click", function () {
+    mediaRecorder = new MediaRecorder(cameraStream, {
+      mimeType: "video/webm", // or video/mp4
+    });
+
+    // new recorded video blob available
+    mediaRecorder.addEventListener("dataavailable", function (e) {
+      blobsRecorded.push(e.data);
+    });
+
+    // recording stopped & all blobs stored
+    mediaRecorder.addEventListener("stop", function () {
+      // create local object URL for blobs
+      let videoLocal = URL.createObjectURL(
+        new Blob(blobsRecorded, { type: "video/webm" }),
+      );
+      onStopRecording(videoLocal);
+    });
+
+    mediaRecorder.start(2000); // size of each blob
+    onStartRecording();
+  });
+
+  stopButton.addEventListener("click", function () {
+    // console.log(blobsRecorded);
+    mediaRecorder.stop();
+  });
+
+  function onStartRecording() {
+    blobsRecorded = []
+    startButton.disabled = true;
+    stopButton.disabled = false;
+    webcam.classList.add("recording");
+    recordedPreview.style.display = "none"
+  }
+
+  function onStopRecording(videoLocal) {
+    startButton.disabled = false;
+    stopButton.disabled = true;
+    webcam.classList.remove("recording");
+    recordedPreview.href = videoLocal;
+    recordedPreview.innerText = videoLocal;
+    recordedPreview.style.display = "block"
+  }
+</script>
