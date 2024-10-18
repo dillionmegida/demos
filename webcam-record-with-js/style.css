@@ -19,6 +19,17 @@ body {
   color: white;
 }
 
+.devices {
+  display: flex;
+  gap: 20px;
+  padding: 10px 0;
+}
+
+.devices select {
+  width: 100%;
+  padding: 10px;
+}
+
 .input-block input {
   border: 1px solid #aaa;
   padding: 20px;
@@ -64,7 +75,6 @@ video {
   width: 100%;
   height: 300px;
   object-fit: cover;
-  /* aspect-ratio: 1.5 / 1; */
   border: 2px solid #aaa;
   transform: scale(-1, 1); /* mirror the view */
 }

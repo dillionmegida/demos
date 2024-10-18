@@ -1,6 +1,14 @@
 <link rel="stylesheet" href="./style.css" />
 
 <div class="container">
+  <div class="devices">
+    <select name="video-devices" id="video-devices" class="video-devices">
+      <option>Select video device</option>
+    </select>
+    <select name="audio-devices" id="audio-devices" class="audio-devices">
+      <option>Select audio device</option>
+    </select>
+  </div>
   <button id="start-camera">Start Camera</button>
   <div class="webcam">
     <video id="video" autoplay muted></video>
@@ -11,6 +19,8 @@
 </div>
 
 <script>
+  const videoDevicesSelect = document.querySelector("#video-devices");
+  const audioDevicesSelect = document.querySelector("#audio-devices");
   const cameraButton = document.querySelector("#start-camera");
   const webcam = document.querySelector(".webcam");
   const video = document.querySelector("#video");
@@ -18,16 +28,28 @@
   const stopButton = document.querySelector("#stop-record");
   const recordedPreview = document.querySelector(".recorded-preview");
 
+  init();
+
   let cameraStream = null;
+  let videoDeviceId = null;
+  let audioDeviceId = null;
   let mediaRecorder = null;
   let blobsRecorded = [];
 
   cameraButton.addEventListener("click", async function () {
-    // prompts the user for permission to use a media input
+    const videoDeviceId =
+      videoDevicesSelect.options[videoDevicesSelect.selectedIndex].value;
+    const audioDeviceId =
+      audioDevicesSelect.options[videoDevicesSelect.selectedIndex].value;
+
     try {
       cameraStream = await navigator.mediaDevices.getUserMedia({
-        video: true,
-        audio: true,
+        video: {
+          deviceId: videoDeviceId,
+        },
+        audio: {
+          deviceId: audioDeviceId,
+        },
       });
       video.srcObject = cameraStream;
     } catch (e) {
@@ -36,8 +58,8 @@
 
       console.log("Could not connect to media devices");
     }
-    
-    cameraButton.disabled = true
+
+    cameraButton.disabled = true;
   });
 
   startButton.addEventListener("click", function () {
@@ -69,11 +91,11 @@
   });
 
   function onStartRecording() {
-    blobsRecorded = []
+    blobsRecorded = [];
     startButton.disabled = true;
     stopButton.disabled = false;
     webcam.classList.add("recording");
-    recordedPreview.style.display = "none"
+    recordedPreview.style.display = "none";
   }
 
   function onStopRecording(videoLocal) {
@@ -82,6 +104,46 @@
     webcam.classList.remove("recording");
     recordedPreview.href = videoLocal;
     recordedPreview.innerText = videoLocal;
-    recordedPreview.style.display = "block"
+    recordedPreview.style.display = "block";
+  }
+
+  async function init() {
+    const cameraPermission = await navigator.permissions.query({
+      name: "camera",
+    });
+    const microphonePermission = await navigator.permissions.query({
+      name: "microphone",
+    });
+
+    console.log({ cameraPermission, microphonePermission });
+
+    if (
+      cameraPermission.state === "prompt" ||
+      microphonePermission.state === "prompt"
+    ) {
+      await navigator.mediaDevices.getUserMedia({
+        video: true,
+        audio: true,
+      }); // ask for permission
+    }
+
+    await getDevices();
+  }
+
+  async function getDevices() {
+    const mediaDevices = await navigator.mediaDevices.enumerateDevices();
+    // console.log(mediaDevices);
+
+    for (const device of mediaDevices) {
+      const optionElem = document.createElement("option");
+      optionElem.value = device.deviceId;
+      optionElem.innerText = device.label;
+
+      if (device.kind === "audioinput")
+        audioDevicesSelect.appendChild(optionElem);
+
+      if (device.kind === "videoinput")
+        videoDevicesSelect.appendChild(optionElem);
+    }
   }
 </script>
