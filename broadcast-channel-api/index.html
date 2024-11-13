@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WhatsApp UI Clone</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="warning hidden" id="warning">
+      <h2>Warning</h2>
+      <p>You cannot open this UI on multiple tabs.</p>
+    </div>
+    <div id="whatsapp-container" class="whatsapp-container">
+      <div class="sidebar">
+        <div class="header">Chats</div>
+        <div class="chat">
+          <div class="avatar"></div>
+          <div class="chat-info">
+            <div class="name">John Doe</div>
+            <div class="last-message">Hey, what's up?</div>
+          </div>
+        </div>
+        <div class="chat">
+          <div class="avatar"></div>
+          <div class="chat-info">
+            <div class="name">Jane Smith</div>
+            <div class="last-message">See you at 5!</div>
+          </div>
+        </div>
+      </div>
+      <div class="chat-area">
+        <div class="chat-header">John Doe</div>
+        <div class="messages">
+          <div class="message received">Hello!</div>
+          <div class="message sent">Hi! How are you?</div>
+        </div>
+        <div class="message-input">
+          <input type="text" placeholder="Type a message" />
+          <button>Send</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const warningElem = document.getElementById('warning')
+      const whatsappContainerElem = document.getElementById('whatsapp-container')
+      
+      const bc = new BroadcastChannel("chat")
+      bc.postMessage("new-tab")
+      
+      bc.onmessage = (event) => {
+        if (event.data === 'new-tab') {
+          console.log("A new tab has been created")
+          bc.postMessage("tab-exists")
+        }
+        
+        if (event.data === 'tab-exists') {
+          warningElem.classList.add('visible')
+          whatsappContainerElem.classList.add('hidden')
+          bc.close()
+        }
+      }
+    </script>
+  </body>
+</html>
