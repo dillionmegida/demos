@@ -1,0 +1,203 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #333;
+  padding: 40px 20px;
+  font-family: Poppins;
+}
+
+#openPopup {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  text-align: center;
+  position: relative;
+}
+
+.hidden {
+  display: none;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.context-menu-links {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.context-menu-links a {
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+}
+
+.context-menu-links a:hover {
+  color: #007bff;
+}
+
+/* Add styles for the hamburger menu button */
+.menu-btn {
+  background: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+
+.menu-btn:hover {
+  background: #f0f0f0;
+}
+
+/* Add styles for the sticky navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+}
+
+.brand-name {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  text-decoration: none;
+}
+
+.nav {
+  display: flex;
+  gap: 30px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav a:hover {
+  color: #007bff;
+}
+
+/* Hide menu button on desktop */
+@media (min-width: 769px) {
+  .menu-btn {
+    display: none;
+  }
+}
+
+/* Hide desktop nav and show menu button on mobile */
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+  }
+
+  .navbar {
+    padding: 15px 20px;
+  }
+
+  .brand-name {
+    font-size: 20px;
+  }
+}
+
+body {
+  padding-top: 90px;
+}
+
+.context-menu {
+  position: fixed;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  min-width: 220px;
+  display: none;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.context-menu .context-menu-links {
+  margin: 0;
+}
+
+.context-menu .context-menu-links li {
+  transition: background-color 0.2s ease;
+}
+
+.context-menu .context-menu-links a {
+  color: #24292e;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+}
+
+.context-menu .context-menu-links li:hover {
+  background-color: #caccce;
+}
+
+.context-menu .context-menu-links a:hover {
+  color: #0366d6;
+}
+
+/* Remove unnecessary styles */
+.popup-content,
+.close-btn,
+.menu-btn {
+  display: none;
+}
