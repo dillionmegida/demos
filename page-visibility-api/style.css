@@ -1,0 +1,37 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Poppins;
+  margin: 0;
+  padding: 40px;
+  color: white;
+  background-color: #333;
+}
+
+main {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+section {
+  margin: 40px 0;
+}
+
+section h2 {
+  color: yellow;
+  margin-bottom: 20px;
+}
+
+video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+button {
+  cursor: pointer;
+  padding: 15px;
+}

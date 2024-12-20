@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page Visibility API Examples</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Page Visibility API</h1>
+
+      <section>
+        <h2>Pause/Play a video</h2>
+        <video controls loop src="./assets/men-walking.mp4"></video>
+      </section>
+
+      <section>
+        <h2>Show pending notifications</h2>
+        <button id="get-notifications-btn">Get notifications</button>
+        <div id="notification-container"></div>
+      </section>
+
+      <section>
+        <h2>Reducing background activity</h2>
+        <p>Like Websocket Connections, Intervals</p>
+      </section>
+    </main>
+
+    <script>
+      // page visibility api for toggling video
+      // document.addEventListener("visibilitychange", () => {
+        // console.log('changed tab')
+
+        // if (document.hidden) {
+        //   console.log('changed tab')
+        // } else {
+        //   console.log('came back')
+        // }
+
+        // const video = document.querySelector("video")
+        // if (document.hidden) {
+        //   console.log('document is hidden')
+        //   video.pause()
+        // } else {
+        //   video.play()
+        // }
+      // })
+
+      // page visibility api for notifications
+      const getNotificationsBtn = document.getElementById(
+        "get-notifications-btn"
+      )
+      const notificationsContainer = document.getElementById(
+        "notification-container"
+      )
+      const notificationQueue = []
+
+      // Simulate new notifications arriving at an interval
+      function generateNotifications() {
+        setInterval(() => {
+          const newNotification = `New message at ${new Date().toLocaleTimeString()}`
+          console.log(`Generated: ${newNotification}`)
+          notificationQueue.push(newNotification)
+        }, 1000)
+      }
+
+      let showNotificationsIntervalId = null
+      let shouldShowNotifications = false
+
+      // show notifications (if available) at an interval
+      function showNotifications() {
+        showNotificationsIntervalId = setInterval(() => {
+          const notification = notificationQueue.shift()
+          const notificationElement = document.createElement("div")
+          notificationElement.textContent = notification
+          notificationElement.style = {
+            border: "1px solid #ccc",
+            margin: "5px 0",
+            padding: "10px",
+            color: "#333",
+            background: "#f9f9f9",
+          }
+
+          notificationsContainer.appendChild(notificationElement)
+        }, 1000)
+      }
+
+      // Listen for visibility change events
+      document.addEventListener("visibilitychange", () => {
+        if (document.hidden) {
+          clearInterval(showNotificationsIntervalId)
+        } else {
+          if (shouldShowNotifications) showNotifications()
+        }
+      })
+
+      // Start showing notifications
+      // getNotificationsBtn.addEventListener("click", () => {
+      //   shouldShowNotifications = true
+      //   showNotifications()
+      // })
+
+      // generateNotifications()
+
+      // page visibility api for websocket
+      let socket
+
+      // Function to start WebSocket connection
+      function startWebSocket() {
+        socket = new WebSocket("wss://example.websocket.com")
+
+        // socket messages
+
+        socket.onclose = () => {
+          console.log("WebSocket connection closed.")
+        }
+      }
+
+      // Function to stop WebSocket connection
+      function stopWebSocket() {
+        if (socket) {
+          socket.close()
+          socket = null
+        }
+      }
+
+      // Handle page visibility changes
+      document.addEventListener("visibilitychange", () => {
+        if (document.hidden) {
+          stopWebSocket()
+        } else {
+          startWebSocket()
+        }
+      })
+
+      // Start the WebSocket connection initially
+      startWebSocket()
+    </script>
+  </body>
+</html>
