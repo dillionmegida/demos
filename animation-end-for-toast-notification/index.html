@@ -1,0 +1,29 @@
+<link rel="stylesheet" href="./style.css" />
+
+<div class="toaster" id="toaster"></div>
+
+
+<button onclick="addToast()">Show Toast</button>
+
+<script>
+  const toaster = document.getElementById("toaster")
+
+  function addToast() {
+    // create a new toast element
+    const toast = document.createElement("div")
+    toast.className = "toast"
+    toast.textContent = "This is a toaster notification!"
+
+    // Add event listener for when the animation ends
+    toast.addEventListener("animationend", () => {
+      toast.remove()
+    })
+
+    // setTimeout(() => {
+    //   toast.remove()
+    // }, (3000));
+
+    // Append the toast to the toaster container
+    toaster.appendChild(toast)
+  }
+</script>
