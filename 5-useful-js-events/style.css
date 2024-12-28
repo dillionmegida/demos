@@ -107,3 +107,15 @@ video {
   width: 100%;
   margin: 10px 0;
 }
+
+#offline-banner {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: red;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
