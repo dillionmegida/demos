@@ -1,0 +1,66 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5 JavaScript Events Not Talked About Enough</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>5 JavaScript Events Not Talked About Enough</h1>
+      <section>
+        <h2>beforeunload</h2>
+        <p>
+          fired when the window, the document and its resources are about to be
+          unloaded.
+        </p>
+        <div class="demo hide">
+          <div class="input-block">
+            <input type="text" placeholder="Type something here..." />
+            <button>Submit</button>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>animationend</h2>
+        <p>fired when a CSS animation has completed.</p>
+        <div class="demo hide">
+          <div class="toaster" id="toaster"></div>
+          <button class="toast-btn" onclick="addToast()">Show Toast</button>
+        </div>
+      </section>
+
+      <section>
+        <h2>visibilitychange</h2>
+        <p>
+          fired when the content of a tab has become visible or has been hidden.
+        </p>
+        <div class="demo hide">
+          <!-- Video from https://www.pexels.com/video/a-woman-unboxing-a-gold-christmas-balls-6274203/ -->
+          <video src="./assets/demo-video.mp4" controls />
+        </div>
+      </section>
+
+      <section>
+        <h2>error</h2>
+        <p>fired when an error occurs while loading an external file.</p>
+        <div class="demo hide">
+          <div class="images">
+            <img src="https://images.unsplash.com/photo-1565633242659-413378537f24?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+            <img src="https://imagess.unsplash.com/photo-1720048171731-15b3d9d5473f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxfHx8ZW58MHx8fHx8" />
+            <img src="https://imagess.unsplash.com/photo-1734375181552-cfa83d404033?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxN3x8fGVufDB8fHx8fA%3D%3D" />
+            <img src="https://images.unsplash.com/photo-1733433527427-54bd7dc3ebd0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyMnx8fGVufDB8fHx8fA%3D%3D" />
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>online and offline</h2>
+        <p>fired when the browser goes online or offline.</p>
+      </section>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
