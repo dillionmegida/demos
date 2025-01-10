@@ -1,0 +1,7 @@
+@import url("../global/global.css");
+
+#gpt-response {
+  width: 100%;
+  max-width: 500px;
+  word-wrap: break-word;
+}
