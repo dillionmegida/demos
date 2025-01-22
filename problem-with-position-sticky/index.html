@@ -1,0 +1,138 @@
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: Poppins;
+    background-color: #333;
+    color: white;
+  }
+
+  main {
+    max-width: 600px;
+    padding: 40px;
+    margin: 40px auto;
+    border: 4px solid red;
+    overflow: auto;
+    /* height: 500px; */
+  }
+
+  .outside-main {
+    max-width: 800px;
+    padding: 40px;
+    margin: 40px auto;
+  }
+
+  .heading-wrapper {
+    border: 4px solid lightgreen;
+    padding: 10px;
+    /* height: 500px; */
+    position: sticky;
+    top: 30px;
+  }
+
+  .heading {
+    border: 2px solid #aaa;
+    background-color: #5e6263;
+    padding: 15px;
+    position: sticky;
+    top: 30px;
+    
+    /* to the nearest scrolling ancestor
+    as long as there is space in the nearest
+    block-level ancestor */
+  }
+
+  .content {
+    margin-top: 15px;
+  }
+</style>
+
+
+<main>
+  <!-- <div class="heading-wrapper"> -->
+    <div class="heading">
+      <h1>Position sticky not working</h1>
+    </div>
+  <!-- </div> -->
+  <p class="content">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit
+    felis augue, a fringilla diam vehicula vel. Sed non facilisis nunc,
+    efficitur venenatis nibh. Morbi posuere lorem at laoreet pellentesque.
+    <br /><br />Fusce fermentum augue eget diam varius malesuada. Morbi rhoncus,
+    turpis sit amet aliquam finibus, nibh purus tristique magna, quis viverra
+    arcu risus tristique lacus. Duis vulputate id diam sit amet porta.
+    <br /><br />Class aptent taciti sociosqu ad litora torquent per conubia
+    nostra, per inceptos himenaeos. Etiam aliquet orci nisi, consequat efficitur
+    urna sagittis quis. Ut et iaculis eros. <br /><br />Morbi vel lectus et
+    risus mattis finibus sit amet vel ex. Vestibulum ante ipsum primis in
+    faucibus orci luctus et ultrices posuere cubilia curae; Morbi tristique nisi
+    nec tortor volutpat, in eleifend diam dapibus. Nullam eu odio ac augue
+    molestie porta at quis augue. Pellentesque quis dolor porttitor, posuere
+    lacus quis, viverra mi. Sed suscipit odio quis condimentum luctus.<br /><br />Morbi
+    vel lectus et risus mattis finibus sit amet vel ex. Vestibulum ante ipsum
+    primis in faucibus orci luctus et ultrices posuere cubilia curae; Morbi
+    tristique nisi nec tortor volutpat, in eleifend diam dapibus. Nullam eu odio
+    ac augue molestie porta at quis augue. Pellentesque quis dolor porttitor,
+    posuere lacus quis, viverra mi. Sed suscipit odio quis condimentum
+    luctus.<br /><br />Morbi vel lectus et risus mattis finibus sit amet vel ex.
+    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere
+    cubilia curae; Morbi tristique nisi nec tortor volutpat, in eleifend diam
+    dapibus. Nullam eu odio ac augue molestie porta at quis augue. Pellentesque
+    quis dolor porttitor, posuere lacus quis, viverra mi. Sed suscipit odio quis
+    condimentum luctus.<br /><br />Morbi vel lectus et risus mattis finibus sit
+    amet vel ex. Vestibulum ante ipsum primis in faucibus orci luctus et
+    ultrices posuere cubilia curae; Morbi tristique nisi nec tortor volutpat, in
+    eleifend diam dapibus. Nullam eu odio ac augue molestie porta at quis augue.
+    Pellentesque quis dolor porttitor, posuere lacus quis, viverra mi. Sed
+    suscipit odio quis condimentum luctus.<br /><br />Morbi vel lectus et risus
+    mattis finibus sit amet vel ex. Vestibulum ante ipsum primis in faucibus
+    orci luctus et ultrices posuere cubilia curae; Morbi tristique nisi nec
+    tortor volutpat, in eleifend diam dapibus. Nullam eu odio ac augue molestie
+    porta at quis augue. Pellentesque quis dolor porttitor, posuere lacus quis,
+    viverra mi. Sed suscipit odio quis condimentum luctus.
+  </p>
+</main>
+
+<div class="outside-main">
+  <p class="content">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit
+    felis augue, a fringilla diam vehicula vel. Sed non facilisis nunc,
+    efficitur venenatis nibh. Morbi posuere lorem at laoreet pellentesque.
+    <br /><br />Fusce fermentum augue eget diam varius malesuada. Morbi rhoncus,
+    turpis sit amet aliquam finibus, nibh purus tristique magna, quis viverra
+    arcu risus tristique lacus. Duis vulputate id diam sit amet porta.
+    <br /><br />Class aptent taciti sociosqu ad litora torquent per conubia
+    nostra, per inceptos himenaeos. Etiam aliquet orci nisi, consequat efficitur
+    urna sagittis quis. Ut et iaculis eros. <br /><br />Morbi vel lectus et
+    risus mattis finibus sit amet vel ex. Vestibulum ante ipsum primis in
+    faucibus orci luctus et ultrices posuere cubilia curae; Morbi tristique nisi
+    nec tortor volutpat, in eleifend diam dapibus. Nullam eu odio ac augue
+    molestie porta at quis augue. Pellentesque quis dolor porttitor, posuere
+    lacus quis, viverra mi. Sed suscipit odio quis condimentum luctus.<br /><br />Morbi
+    vel lectus et risus mattis finibus sit amet vel ex. Vestibulum ante ipsum
+    primis in faucibus orci luctus et ultrices posuere cubilia curae; Morbi
+    tristique nisi nec tortor volutpat, in eleifend diam dapibus. Nullam eu odio
+    ac augue molestie porta at quis augue. Pellentesque quis dolor porttitor,
+    posuere lacus quis, viverra mi. Sed suscipit odio quis condimentum
+    luctus.<br /><br />Morbi vel lectus et risus mattis finibus sit amet vel ex.
+    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere
+    cubilia curae; Morbi tristique nisi nec tortor volutpat, in eleifend diam
+    dapibus. Nullam eu odio ac augue molestie porta at quis augue. Pellentesque
+    quis dolor porttitor, posuere lacus quis, viverra mi. Sed suscipit odio quis
+    condimentum luctus.<br /><br />Morbi vel lectus et risus mattis finibus sit
+    amet vel ex. Vestibulum ante ipsum primis in faucibus orci luctus et
+    ultrices posuere cubilia curae; Morbi tristique nisi nec tortor volutpat, in
+    eleifend diam dapibus. Nullam eu odio ac augue molestie porta at quis augue.
+    Pellentesque quis dolor porttitor, posuere lacus quis, viverra mi. Sed
+    suscipit odio quis condimentum luctus.<br /><br />Morbi vel lectus et risus
+    mattis finibus sit amet vel ex. Vestibulum ante ipsum primis in faucibus
+    orci luctus et ultrices posuere cubilia curae; Morbi tristique nisi nec
+    tortor volutpat, in eleifend diam dapibus. Nullam eu odio ac augue molestie
+    porta at quis augue. Pellentesque quis dolor porttitor, posuere lacus quis,
+    viverra mi. Sed suscipit odio quis condimentum luctus.
+  </p>
+</div>
