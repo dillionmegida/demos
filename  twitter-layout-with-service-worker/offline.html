@@ -1,0 +1,45 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Twitter Layout</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Explore</a></li>
+          <li><a href="#">Notifications</a></li>
+          <li><a href="#">Messages</a></li>
+          <li><a href="#">Bookmarks</a></li>
+          <li><a href="#">Profile</a></li>
+          <li><a href="#">More</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+    </main>
+
+    <aside class="right-sidebar">
+      <div class="trends">
+        <h2>What's happening</h2>
+      </div>
+    </aside>
+  </div>
+</body>
+
+<script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker
+      .register("./service-worker.js")
+      .then(registration => {
+        console.log("Service Worker registered with scope:", registration.scope)
+      })
+      .catch(error => {
+        console.error("Service Worker registration failed:", error)
+      })
+  }
+</script>

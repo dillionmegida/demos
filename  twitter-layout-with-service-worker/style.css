@@ -1,0 +1,112 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #15202b; /* Dark background */
+  color: #ffffff; /* Light text */
+}
+
+.container {
+  display: flex;
+  max-width: 1000px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+.sidebar {
+  flex: 1;
+  max-width: 150px;
+  border-right: 1px solid #38444d; /* Subtle border */
+  padding: 20px;
+}
+
+.sidebar nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar nav ul li {
+  margin: 15px 0;
+}
+
+.sidebar nav ul li a {
+  text-decoration: none;
+  color: #1da1f2; /* Twitter blue */
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.main-content {
+  flex: 2;
+  padding: 20px;
+  background-color: #15202b; /* Match overall background */
+  border-right: 1px solid #38444d;
+}
+
+.main-content header {
+  padding-bottom: 15px;
+  border-bottom: 1px solid #38444d;
+}
+
+.main-content .tweets {
+  margin-top: 20px;
+}
+
+.main-content .tweet {
+  padding: 15px;
+  margin-bottom: 10px;
+  border: 1px solid #38444d;
+  border-radius: 10px;
+  background-color: #192734; /* Slightly lighter background for tweets */
+  color: #e1e8ed; /* Softer text color */
+}
+
+.right-sidebar {
+  flex: 1;
+  max-width: 300px;
+  padding: 20px;
+}
+
+.right-sidebar .trends {
+  border: 1px solid #38444d;
+  border-radius: 10px;
+  padding: 15px;
+  background-color: #15202b;
+}
+
+.right-sidebar .trends h2 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.right-sidebar .trends ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.right-sidebar .trends ul li {
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+  color: #8899a6; /* Muted text for trends */
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar,
+  .right-sidebar {
+    max-width: 100%;
+  }
+
+  .main-content {
+    flex: 1;
+  }
+}
