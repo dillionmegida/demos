@@ -1,0 +1,26 @@
+.main {
+  padding: 80px;
+}
+
+.main p {
+  font-size: 2rem;
+}
+
+.highlight {
+  color: yellow;
+}
+
+.btn {
+  background-color: #333;
+  font-size: 4rem;
+  cursor: pointer;
+  margin: 20px 0;
+  padding: 20px;
+  border-radius: 3px;
+  border: none;
+}
+
+.textarea {
+  padding: 20px;
+  margin: 20px 0;
+}
