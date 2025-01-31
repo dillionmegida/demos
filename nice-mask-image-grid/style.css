@@ -1,0 +1,99 @@
+@import url("../global/global.css");
+
+body {
+  background-color: #eeecec;
+  padding: 0;
+}
+
+.container {
+  padding: 20px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #333;
+}
+
+.links ul {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+header .links a {
+  color: #333;
+}
+
+.tagline {
+  max-width: 500px;
+  text-align: center;
+  margin: 0 auto;
+  color: #333;
+  padding: 40px 0;
+}
+
+.tagline h1 {
+  text-transform: uppercase;
+  font-weight: bold;
+  line-height: 1;
+  font-size: 2.5rem;
+}
+.tagline p {
+  margin-top: 15px;
+  font-size: 0.7rem;
+}
+
+.tagline a {
+  display: block;
+  width: max-content;
+  margin: 15px auto;
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+  border-radius: 30px;
+}
+
+.image-grid-wrapper {
+  position: relative;
+  overflow-y: hidden;
+  --x-offset: -50px;
+  --y-offset: -50px;
+}
+
+.image-grid-wrapper::before,
+.image-grid-wrapper::after {
+  content: "";
+  background-color: #eeecec;;
+  height: 100px;
+  /* width: 100%; */
+  position: absolute;
+  border-radius: 50%;
+  /* background-color: red; */
+}
+
+.image-grid-wrapper::before {
+  /* top: -50px; */
+  inset: var(--y-offset) var(--x-offset) 0;
+}
+
+.image-grid-wrapper::after {
+  inset: 0 var(--x-offset) var(--y-offset);
+  top: unset;
+}
+
+.image-grid {
+  display: flex;
+  gap: 20px;
+  overflow-x: scroll;
+}
+
+.image-grid img {
+ height: 400px; 
+}
