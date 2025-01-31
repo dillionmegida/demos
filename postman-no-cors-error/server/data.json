@@ -1,0 +1,72 @@
+[
+  {
+    "id": "u1",
+    "name": "Olivia Chen",
+    "age": 28,
+    "hobbies": [
+      "rock climbing",
+      "photography",
+      "cooking"
+    ]
+  },
+  {
+    "id": "u2",
+    "name": "Ethan Rodriguez",
+    "age": 35,
+    "hobbies": [
+      "surfing",
+      "guitar playing",
+      "traveling"
+    ]
+  },
+  {
+    "id": "u3",
+    "name": "Sophia Patel",
+    "age": 42,
+    "hobbies": [
+      "gardening",
+      "yoga",
+      "painting"
+    ]
+  },
+  {
+    "id": "u4",
+    "name": "Liam O'Connor",
+    "age": 19,
+    "hobbies": [
+      "gaming",
+      "skateboarding",
+      "anime watching"
+    ]
+  },
+  {
+    "id": "u5",
+    "name": "Ava Nakamura",
+    "age": 31,
+    "hobbies": [
+      "salsa dancing",
+      "reading",
+      "hiking"
+    ]
+  },
+  {
+    "id": "u6",
+    "name": "Noah Kim",
+    "age": 24,
+    "hobbies": [
+      "basketball",
+      "vlogging",
+      "coding"
+    ]
+  },
+  {
+    "id": "u7",
+    "name": "Emma Dubois",
+    "age": 39,
+    "hobbies": [
+      "wine tasting",
+      "pottery",
+      "bird watching"
+    ]
+  }
+]

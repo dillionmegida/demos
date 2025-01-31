@@ -1,0 +1,25 @@
+@import url("../../global/global.css");
+
+body {
+  padding: 40px;
+}
+
+.user-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.user-item {
+  padding: 20px;
+  border: 1px solid #aaa;
+}
+
+.user-item__delete {
+  border: 1px solid red;
+  padding: 5px;
+  color: #aaa;
+  margin: 5px 0 0;
+  font-size: 0.5rem;
+  cursor: pointer;
+}

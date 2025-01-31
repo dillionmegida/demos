@@ -1,0 +1,56 @@
+<link href="./style.css" rel="stylesheet" />
+
+
+<body>
+  <h1>No CORS Error in Postman</h1>
+  <div id="userList" class="user-list"></div>
+
+  <script>
+    const apiUrl = "http://localhost:8000/users"
+
+    function fetchUsers() {
+      fetch(apiUrl)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok")
+          }
+          return response.json()
+        })
+        .then(users => {
+          displayUsers(users)
+        })
+        .catch(error => {
+          console.error("Error:", error)
+        })
+    }
+
+    function displayUsers(users) {
+      const userList = document.getElementById("userList")
+      userList.innerHTML = ""
+      users.forEach(user => {
+        const userDiv = document.createElement("div")
+        userDiv.classList.add('user-item')
+        userDiv.innerHTML = `
+                  <p>${user.name} (${user.age})</p>
+                  <button class="user-item__delete" onclick="deleteUser('${user.id}')">Delete</button>
+              `
+        userList.appendChild(userDiv)
+      })
+    }
+
+    function deleteUser(id) {
+      fetch(`${apiUrl}/${id}`, { method: "DELETE" })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok")
+          }
+          fetchUsers()
+        })
+        .catch(error => {
+          console.error("Error:", error)
+        })
+    }
+
+    fetchUsers()
+  </script>
+</body>
