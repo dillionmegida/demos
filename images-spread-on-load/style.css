@@ -1,0 +1,114 @@
+@import url("../global/global.css");
+
+body {
+  background-color: #d9d9d9;
+  padding: 40px;
+}
+
+.spread-container {
+  position: relative;
+  height: 600px;
+  max-width: 800px;
+  margin: 0 auto;
+  /* border: 1px solid black; */
+}
+.middle-content {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  height: max-content;
+  text-align: center;
+  max-width: 170px;
+  width: 100%;
+  opacity: 0;
+  animation: reveal-middle 1000ms 600ms forwards;
+}
+
+@keyframes reveal-middle {
+  to {
+    opacity: 1;
+  }
+}
+
+.middle-content:hover ~ img {
+  filter: grayscale(0);
+}
+
+.middle-content h1 {
+  font-size: 50px;
+  color: #333;
+}
+
+.middle-content .tagline {
+  margin-top: -10px;
+  color: #333;
+  font-size: 0.6rem;
+}
+
+.middle-content a {
+  background-color: #333;
+  display: block;
+  border-radius: 10px;
+  padding: 10px 10px;
+  margin-top: 30px;
+  color: white;
+  font-size: 0.7rem;
+}
+
+.spread-container img {
+  --img-width: 150px;
+  width: var(--img-width);
+  --img-height: 150px;
+  height: var(--img-height);
+  object-fit: cover;
+  border-radius: 5px;
+  position: absolute;
+  border: 2px solid #333;
+  filter: grayscale(1);
+  transition: filter 400ms;
+  animation: spread-images 1000ms 200ms forwards;
+  top: 40%;
+  left: 40%;
+  --x-offset: 50px;
+  /* margin: auto; */
+}
+
+.spread-container img:nth-of-type(1) {
+  --top: 0;
+  --left: calc(var(--x-offset) * 2);
+}
+.spread-container img:nth-of-type(2) {
+  --top: calc(var(--img-height) + 20px);
+  --left: calc(var(--x-offset) * 1);
+}
+.spread-container img:nth-of-type(3) {
+  --top: calc(var(--img-height) * 2 + 40px);
+  --left: calc(var(--x-offset) * 0);
+}
+.spread-container img:nth-of-type(4) {
+  --top: calc(var(--img-height) * 3 + 60px);
+  --left: calc(var(--x-offset) * 2);
+}
+.spread-container img:nth-of-type(5) {
+  --top: 0;
+  --left: calc(100% - var(--x-offset) * 2 - var(--img-width));
+}
+.spread-container img:nth-of-type(6) {
+  --top: calc(var(--img-height) + 20px);
+  --left: calc(100% - var(--x-offset) * 1 - var(--img-width));
+}
+.spread-container img:nth-of-type(7) {
+  --top: calc(var(--img-height) * 2 + 40px);
+  --left: calc(100% - var(--x-offset) * 0 - var(--img-width));
+}
+.spread-container img:nth-of-type(8) {
+  --top: calc(var(--img-height) * 3 + 60px);
+  --left: calc(100% - var(--x-offset) * 2 - var(--img-width));
+}
+
+@keyframes spread-images {
+  to {
+    top: var(--top);
+    left: var(--left);
+  }
+}
