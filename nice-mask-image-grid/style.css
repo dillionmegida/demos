@@ -72,14 +72,12 @@ header .links a {
   content: "";
   background-color: #eeecec;;
   height: 100px;
-  /* width: 100%; */
   position: absolute;
   border-radius: 50%;
   /* background-color: red; */
 }
 
 .image-grid-wrapper::before {
-  /* top: -50px; */
   inset: var(--y-offset) var(--x-offset) 0;
 }
 
