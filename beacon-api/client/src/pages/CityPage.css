@@ -1,0 +1,141 @@
+.city-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.city-page h1 {
+  color: #1e3c72;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.city-page h1::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #1e3c72 0%, #2a5298 100%);
+  border-radius: 2px;
+}
+
+.city-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.city-image {
+  height: 100%;
+  min-height: 400px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+/* City-specific background images */
+.city-image.amsterdam {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url("https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=3600");
+}
+
+.city-image.rotterdam {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url("https://images.unsplash.com/photo-1572202378710-71d8b1cce96c?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=3869");
+}
+
+.city-image.the-hague {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url("https://images.unsplash.com/photo-1586174035695-35ab9e19215c?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=4660");
+}
+
+.city-info {
+  padding: 2rem;
+}
+
+.city-info h2 {
+  color: #2a5298;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+}
+
+.city-info h3 {
+  color: #1e3c72;
+  margin: 1.5rem 0 1rem;
+  font-size: 1.4rem;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 0.5rem;
+}
+
+.city-info p {
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.city-info ul {
+  padding-left: 1.5rem;
+  margin: 1rem 0;
+}
+
+.city-info li {
+  margin-bottom: 0.8rem;
+  color: #555;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.city-info li::before {
+  content: "•";
+  color: #2a5298;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+  position: absolute;
+  left: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .city-content {
+    grid-template-columns: 1fr;
+  }
+
+  .city-image {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .city-page {
+    padding: 1rem;
+  }
+
+  .city-page h1 {
+    font-size: 2rem;
+  }
+
+  .city-info {
+    padding: 1.5rem;
+  }
+
+  .city-info h2 {
+    font-size: 1.5rem;
+  }
+
+  .city-info h3 {
+    font-size: 1.2rem;
+  }
+}
